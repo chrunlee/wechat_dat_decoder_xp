@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+
+var fs = require('fs');
+var log = print = console.log;
+var decoder = require('../lib/decoder');
+
+var argv = require("minimist")(process.argv.slice(2), {
+  alias: {
+    'dir': 'd'
+  },
+  string: ['dir'],
+  'default': {
+    'dir': process.cwd()
+  }
+});
+print('开始检索并进行解码...');
+decoder(argv.dir)
+
+
